@@ -20,6 +20,9 @@ public class WordLists {
 
 	public WordLists(String inputFileName) throws IOException {
 	    // ... define!
+		// read input file
+		Scanner scanner = new Scanner(new File(inputFileName));
+		
 	}
 	
 	private boolean isPunctuationChar(char c) {
