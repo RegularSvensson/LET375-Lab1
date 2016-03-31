@@ -131,7 +131,7 @@ public class AngloTrainer {
     	 * Catch IOException and print error message
     	 */
     	try {
-    		AngloTrainer angloTrainer = new AnlgoTrainer("src/dictionary.txt");
+    		AngloTrainer angloTrainer = new AngloTrainer("dictionary.txt");
     		angloTrainer.start();
     	}
     	catch (IOException e) {
