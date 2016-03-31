@@ -22,6 +22,14 @@ public class AngloTrainer {
 		loadDictionary(dictionaryFile);
 		
 	}
+	
+	/**
+	 * Runs the program, allowing the user to enter words.
+	 * When done or the user fails, it prints all the possible words.
+	 */
+	public void run() {
+		
+	}
 
 	/**
 	 * Prints all possible words to screen.
