@@ -133,6 +133,12 @@ public class AngloTrainer {
 		}
 	}
 	
+	/**
+	 * Makes vowels a little more likely in a random string of letters.
+	 * 
+	 * @param length
+	 * @return String of random letters
+	 */
 	private String randomLetters( int length ) {
 	    String letters = "aabcdeefghiijklmnoopqrstuuvwxyyz";  
 	    StringBuffer buf = new StringBuffer(length);
@@ -168,8 +174,7 @@ public class AngloTrainer {
 		return words;
 	}
 	
-	
-	/* Def. includes	
+	/** Def. includes	
 	 * Let #(x,s) = the number of occurrences of the charcter x in the string s.
 	 * includes(a,b) holds iff for every character x in b, #(x,b) <= #(x,a)
 	 * 
@@ -195,7 +200,7 @@ public class AngloTrainer {
 		//postcondition: j == b.length()
 		return true;
 	}
-	
+
      // This is just for demonstration purposes.
 	private void testIncludes() { 
 		//                                            expected value
