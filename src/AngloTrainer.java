@@ -5,8 +5,11 @@
 public class AngloTrainer {
 	// ...
 
+	// constructor
 	public AngloTrainer(String dictionaryFile) throws IOException {
 	    // ... define!
+		loadDictionary(dictionaryFile);
+		
 	}
 
 	// use this to verify loadDictionary
