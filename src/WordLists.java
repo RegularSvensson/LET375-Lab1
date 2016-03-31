@@ -137,9 +137,24 @@ public class WordLists {
           // define!
 	}
 	
-
+	/**
+	 * Computes the alphabetical order of words flipped backwards.
+	 * Writes the words to a file in this order.
+	 * @throws IOException
+	 */
 	private void computeBackwardsOrder() throws IOException {
 	    // define!
+		Set<String> wordSet = new TreeSet<String>();
+		for (String word : words.keySet()) {
+			wordSet.add(reverse(word));
+		}
+		
+		String output = "";
+		for (String word : wordSet) {
+			output += String.format("%s\n", reverse(word));
+		}
+		
+		writeToFile("backwardsSorted.txt", output);
 	}
 
 	public static void main(String[] args) throws IOException {
