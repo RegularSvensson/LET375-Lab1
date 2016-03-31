@@ -34,6 +34,39 @@ public class AngloTrainer {
 		// print random letters to screen
 		printRandomLetters();
 		
+		do {
+			Scanner scanner = new Scanner(System.in);
+			String word;
+			HashSet<String> usedWords = new HashSet<String>();
+			
+			// try to read a new word from user
+			try {
+				word = scanner.next();
+			}
+			// quit if e.g. <ctrl-Z> is pressed
+			catch (Exception e) {
+				break;
+			}
+			// check if that word has already been used
+			if (usedWords.contains(word)) {
+				System.out.println("You have already used that word.");
+			}
+			else {
+				// check if the word only uses characters from randomLetters
+				if (!includes(randomLetters, sort(word)) {
+					System.out.println("Your suggestion used characters that are not found in the given random characters.");
+					break;
+				}
+				// check if the word is correct
+				if (!correctWords.contains(word)) {
+					System.out.println("Your suggestion was not found in the dictionary.");
+					break;
+				}
+				
+			}
+		}
+		while(true);
+		
 		// print all possible words to screen
 		printAllWords();
 	}
