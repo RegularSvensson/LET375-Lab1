@@ -29,6 +29,7 @@ public class WordLists {
 				return - 1 * first.compareTo(second);
 			}
 	});
+	private Set<String> wordSet = new TreeSet<String>();
 
 	// constructor
 	public WordLists(String inputFileName) throws IOException {
