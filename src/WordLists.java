@@ -32,22 +32,28 @@ public class WordLists {
 	private Set<String> wordSet = new TreeSet<String>();
 
 	// constructor
-	public WordLists(String inputFileName) throws IOException {
-		// read input file
-		in = new BufferedReader(new FileReader(inputFileName));
-		// call getWord() to add words and their count to words TreeMap
-		while ((word = getWord()) != null) {
-			// check if first time word used
-			if (!words.containsKey(word)) {
-				Integer i = 1;
-				words.put(word, i);
-			}
-			// else, add one to count
-			else {
-				words.put(word, words.get(word) + 1);
+	public WordLists(String inputFileName) {
+		try {
+			// read input file
+			in = new BufferedReader(new FileReader(inputFileName));
+			// call getWord() to add words and their count to words TreeMap
+			while ((word = getWord()) != null) {
+				// check if first time word used
+				if (!words.containsKey(word)) {
+					Integer i = 1;
+					words.put(word, i);
+				}
+				// else, add one to count
+				else {
+					words.put(word, words.get(word) + 1);
+				}
 			}
 		}
+		catch(IOException e) {
+			System.out.println("Exception: "+ e.getStackTrace());
+		}
 	}
+
 	
 	/**
 	 * Checks if a char is a punctuation.
@@ -59,6 +65,11 @@ public class WordLists {
 	    return punctChars.indexOf(c) != -1;
 	}
 	
+	/**
+	 * Returns next word in file.
+	 * @return word or null
+	 * @throws IOException
+	 */
 	private String getWord() throws IOException {
 		int state = 0;
 		int i;
@@ -130,33 +141,28 @@ public class WordLists {
 	}
 	
 
-	private void computeFrequencyMap() {
-		try {
-	        // Add count and words to map
-			for(Map.Entry<String, Integer> entry : words.entrySet()) {
-				if(!map.containsKey(entry.getValue())) {
-					TreeSet<String> set = new TreeSet<String>();
-					set.add(entry.getKey());
-					map.put(entry.getValue(), set);
-				}
-				else {
-					map.get(entry.getValue()).add(entry.getKey());
-				}
+	private void computeFrequencyMap() throws IOException {
+        // Add count and words to map
+		for(Map.Entry<String, Integer> entry : words.entrySet()) {
+			if(!map.containsKey(entry.getValue())) {
+				TreeSet<String> set = new TreeSet<String>();
+				set.add(entry.getKey());
+				map.put(entry.getValue(), set);
 			}
-			String output = "";
-			// add count to output string
-			for(Integer n : map.keySet()) {
-				output += String.format("%d:\n", n);
-				// add words to output string
-				for (String word : map.get(n)) {
-					output += String.format("\t%s\n", word);
-				}
+			else {
+				map.get(entry.getValue()).add(entry.getKey());
 			}
-			writeToFile("frequencySorted.txt", output);
 		}
-		catch (IOException ioe) {
-			System.out.println("Exception: "+ ioe.getStackTrace());
+		String output = "";
+		// add count to output string
+		for(Integer n : map.keySet()) {
+			output += String.format("%d:\n", n);
+			// add words to output string
+			for (String word : map.get(n)) {
+				output += String.format("\t%s\n", word);
+			}
 		}
+		writeToFile("frequencySorted.txt", output);
 	}
 	
 	/**
@@ -164,22 +170,17 @@ public class WordLists {
 	 * Writes the words to a file in this order.
 	 * @throws IOException
 	 */
-	private void computeBackwardsOrder() {
-		try {
-			// add words flipped backwards to wordSet Set
-			for (String word : words.keySet()) {
-				wordSet.add(reverse(word));
-			}
-			String output = "";
-			// add words flipped back to output string
-			for (String word : wordSet) {
-				output += String.format("%s\n", reverse(word));
-			}
-			writeToFile("backwardsSorted.txt", output);
+	private void computeBackwardsOrder() throws IOException {
+		// add words flipped backwards to wordSet Set
+		for (String word : words.keySet()) {
+			wordSet.add(reverse(word));
 		}
-		catch (IOException ioe) {
-			System.out.println("Exception: "+ ioe.getStackTrace());
+		String output = "";
+		// add words flipped back to output string
+		for (String word : wordSet) {
+			output += String.format("%s\n", reverse(word));
 		}
+		writeToFile("backwardsSorted.txt", output);
 	}
 
 	public static void main(String[] args) throws IOException {
