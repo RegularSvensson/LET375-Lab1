@@ -11,7 +11,6 @@ import java.util.TreeSet;
 public class AngloTrainer {
 	// ...
 
-	private Scanner scanner;
 	private int lengthOfLongestWord = 0;
 	private TreeSet<String> dictionary = new TreeSet<String>();
 
