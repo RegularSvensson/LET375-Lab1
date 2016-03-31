@@ -15,9 +15,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-// Author(s):
-// Version: 
-// Date:	
+/**
+ * 
+ * @author Mona Khoshoi, Elias Svensson
+ * @since 31-03-16 
+ * Email: khoshoimona@gmail.com, elias.svensson.1992@gmail.com
+ *
+ */	
 
 public class WordLists {
 	private Reader in = null;
