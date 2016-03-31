@@ -141,9 +141,29 @@ public class WordLists {
 	}
 	
 
-	private void computeFrequencyMap() {
 	private void computeFrequencyMap() throws IOException {
           // define!
+		for(Map.Entry<String, Integer> entry : words.entrySet()) {
+			if(!map.containsKey(entry.getValue())) {
+				TreeSet<String> set = new TreeSet<String>();
+				set.add(entry.getKey());
+				map.put(entry.getValue(), set);
+			}
+			else {
+				map.get(entry.getValue()).add(entry.getKey());
+			}
+		}
+		
+		String output = "";
+		for(Integer n : map.keySet()) {
+			output += String.format("%d:\n", n);
+			for (String word : map.get(n)) {
+				output += String.format("\t%s\n", word);
+			}
+		}
+		
+		writeToFile("frequencySorted.txt", output);
+		
 	}
 	
 	/**
