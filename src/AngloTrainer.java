@@ -25,7 +25,7 @@ public class AngloTrainer {
 	
 	// use this to verify loadDictionary
 	/**
-	 * Print out the dictionary at the screen.
+	 * Prints out the dictionary at the screen.
 	 */
 	private void dumpDict() {
 	    // Print out the dictionary at the screen.
@@ -34,7 +34,7 @@ public class AngloTrainer {
 	}
 
 	/**
-	 * Read the dictionary into a suitable container.
+	 * Reads the dictionary into a suitable container.
 	 * The file is a simple text file. One word per line.
 	 * @param fileName
 	 */
@@ -127,8 +127,8 @@ public class AngloTrainer {
     public static void main(String[] args) {
         // ... define!
     	/**
-    	 * Try to instantiate an AngloTrainer object using dictionary.txt
-    	 * Catch IOException and print error message
+    	 * Tries to instantiate an AngloTrainer object using dictionary.txt
+    	 * Catches IOException and print error message
     	 */
     	try {
     		AngloTrainer angloTrainer = new AngloTrainer("dictionary.txt");
