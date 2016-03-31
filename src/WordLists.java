@@ -120,7 +120,7 @@ public class WordLists {
 	
 	/**
 	 * Computes the frequency of words used in a files.
-	 * Writes the words and their frequency to a file by order of frequency.
+	 * Writes the words and their frequency to a file.
 	 * @throws IOException
 	 */
 	private void computeWordFrequencies() throws IOException {
