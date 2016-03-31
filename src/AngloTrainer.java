@@ -36,15 +36,18 @@ public class AngloTrainer {
 		// print out dictionary to screen
 		dumpDict();
 		
+		randomLetters = randomLetters(lengthOfLongestWord);
 		
 		// print random letters to screen
 		printRandomLetters();
+
+		randomLetters = sort(randomLetters);
+		correctWords = getPossibleWords(randomLetters);
+		Scanner scanner = new Scanner(System.in);
+		String word;
+		HashSet<String> usedWords = new HashSet<String>();
 		
 		do {
-			Scanner scanner = new Scanner(System.in);
-			String word;
-			HashSet<String> usedWords = new HashSet<String>();
-			
 			// try to read a new word from user
 			try {
 				word = scanner.next();
@@ -68,13 +71,19 @@ public class AngloTrainer {
 					System.out.println("Your suggestion was not found in the dictionary.");
 					break;
 				}
+				// add word to usedWords
+				usedWords.add(word);
+				
+				System.out.println("ok!");
 				
 			}
 		}
 		while(true);
 		
+		scanner.close();
+		
 		// print all possible words to screen
-		printAllWords();
+		printAllWords();	
 	}
 
 	/**
@@ -117,6 +126,7 @@ public class AngloTrainer {
 				}
 				dictionary.add(s);
 			}
+			scanner.close();
 		} 
 		catch (IOException e) {
 			System.out.println("Scanner exception.");
@@ -143,7 +153,6 @@ public class AngloTrainer {
 		String sortedWord = new String(chars);
 		return sortedWord;
 	}
-	
 	
 	/**
 	 * Find possible words of given letters matching dictionary words
