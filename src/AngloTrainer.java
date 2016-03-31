@@ -10,6 +10,10 @@ import java.util.Set;
 public class AngloTrainer {
 	// ...
 
+	private Scanner scanner;
+	private int lengthOfLongestWord = 0;
+	private Set<String> dictionary;
+
 	// constructor
 	public AngloTrainer(String dictionaryFile) throws IOException {
 	    // ... define!
