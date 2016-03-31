@@ -138,7 +138,7 @@ public class WordLists {
 	}
 	
 
-	private void computeBackwardsOrder() {
+	private void computeBackwardsOrder() throws IOException {
 	    // define!
 	}
 
