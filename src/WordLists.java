@@ -94,10 +94,15 @@ public class WordLists {
 	 * @param output
 	 * @throws IOException
 	 */
-	private void writeToFile(String fileName, String output) throws IOException {
-		Writer writer = new FileWriter(fileName);
-		writer.write(output);
-		writer.close();
+	private void writeToFile(String fileName, String output) {
+		try {
+			Writer writer = new FileWriter(fileName);
+			writer.write(output);
+			writer.close();
+		}
+		catch (IOException ioe) {
+			System.out.println("Exception: "+ ioe.getStackTrace());
+		}
 	}
 	
 	/**
