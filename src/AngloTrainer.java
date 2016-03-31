@@ -27,10 +27,29 @@ public class AngloTrainer {
           // ... define!
 	}
 
+	/**
+	 * Read the dictionary into a suitable container.
+	 * The file is a simple text file. One word per line.
+	 * @param fileName
+	 */
 	private void loadDictionary( String fileName ) {
 	    // Read the dictionary into a suitable container.
 	    // The file is a simple text file. One word per line.
           // ... define!
+		File file = new File(fileName);
+		try {
+			scanner = new Scanner(file);
+			while(scanner.hasNextLine()) {
+				String s = scanner.nextLine();
+				if (lengthOfLongestWord < s.length()) {
+					lengthOfLongestWord = s.length();
+				}
+				dictionary.add(s);
+			}
+		} 
+		catch (IOException e) {
+			System.out.println("Scanner exception.");
+		}
 	}
 
 	private String randomLetters( int length ) {
