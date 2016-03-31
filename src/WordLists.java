@@ -1,7 +1,13 @@
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeMap;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 
 // Author(s):
@@ -10,12 +16,30 @@ import java.io.FileReader;
 
 public class WordLists {
 	private Reader in = null;
-	private TreeMap<String, Integer> words;
+	private Map<String, Integer> words  = new TreeMap<String, Integer>();
 
+	// constructor
 	public WordLists(String inputFileName) throws IOException {
 	    // ... define!
+		// read input file
+		Scanner scanner = new Scanner(new File(inputFileName));
+		
+		// add words in file to words TreeMap
+		while (scanner.hasNext()) {
+			String word = scanner.next();
+		    Integer count = words.get(word);
+		    count = (count == null ? 1 : count + 1);
+		    words.put(word, count);
+		}
+		scanner.close();
 	}
-	
+	/* Prints words TreeMap
+	public void printTreeMap() {
+		for (String word : words.keySet()) {
+			System.out.println(word);
+		}
+	}
+	*/
 	private boolean isPunctuationChar(char c) {
 	    final String punctChars = ",.:;?!";
 	    return punctChars.indexOf(c) != -1;
@@ -73,6 +97,7 @@ public class WordLists {
 		wl.computeWordFrequencies();
 		wl.computeFrequencyMap();
 		wl.computeBackwardsOrder();
+		// wl.printTreeMap();
 		
 		System.out.println("Finished!");
 	}
