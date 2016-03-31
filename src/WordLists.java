@@ -32,14 +32,16 @@ public class WordLists {
 
 	// constructor
 	public WordLists(String inputFileName) throws IOException {
-	    // ... define!
+		// read input file
 		in = new BufferedReader(new FileReader(inputFileName));
-		
+		// call getWord() to add words and their count to words TreeMap
 		while ((word = getWord()) != null) {
+			// check if first time word used
 			if (!words.containsKey(word)) {
 				Integer i = 1;
 				words.put(word, i);
 			}
+			// else, add one to count
 			else {
 				words.put(word, words.get(word) + 1);
 			}
@@ -69,6 +71,11 @@ public class WordLists {
 	}
 	*/
 	
+	/**
+	 * Checks if a char is a punctuation.
+	 * @param c
+	 * @return true or false
+	 */
 	private boolean isPunctuationChar(char c) {
 	    final String punctChars = ",.:;?!";
 	    return punctChars.indexOf(c) != -1;
@@ -121,7 +128,6 @@ public class WordLists {
 	 * @return reversed string
 	 */
 	private String reverse(String s) {
-	    // define!
 		String reverse = new StringBuffer(s).reverse().toString();
 		return reverse;
 	}
@@ -132,8 +138,8 @@ public class WordLists {
 	 * @throws IOException
 	 */
 	private void computeWordFrequencies() throws IOException {
-          // define!
 		String output = "";
+		// add words and their count to output string
 		for (String key : words.keySet()) {
 			output += String.format("%s\t%d\n", key, words.get(key));
 		}
@@ -142,7 +148,7 @@ public class WordLists {
 	
 
 	private void computeFrequencyMap() throws IOException {
-          // define!
+        // Add count and words to map
 		for(Map.Entry<String, Integer> entry : words.entrySet()) {
 			if(!map.containsKey(entry.getValue())) {
 				TreeSet<String> set = new TreeSet<String>();
@@ -153,17 +159,16 @@ public class WordLists {
 				map.get(entry.getValue()).add(entry.getKey());
 			}
 		}
-		
 		String output = "";
+		// add count to output string
 		for(Integer n : map.keySet()) {
 			output += String.format("%d:\n", n);
+			// add words to output string
 			for (String word : map.get(n)) {
 				output += String.format("\t%s\n", word);
 			}
 		}
-		
 		writeToFile("frequencySorted.txt", output);
-		
 	}
 	
 	/**
@@ -191,8 +196,6 @@ public class WordLists {
 		wl.computeWordFrequencies();
 		wl.computeFrequencyMap();
 		wl.computeBackwardsOrder();
-		// wl.printTreeMap();
-		// wl.writeTreeMap();
 		
 		System.out.println("Finished!");
 	}
