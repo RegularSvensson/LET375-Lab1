@@ -33,6 +33,13 @@ public class WordLists {
 		}
 		scanner.close();
 	}
+	/* Prints words TreeMap
+	public void printTreeMap() {
+		for (String word : words.keySet()) {
+			System.out.println(word);
+		}
+	}
+	*/
 	private boolean isPunctuationChar(char c) {
 	    final String punctChars = ",.:;?!";
 	    return punctChars.indexOf(c) != -1;
@@ -90,6 +97,7 @@ public class WordLists {
 		wl.computeWordFrequencies();
 		wl.computeFrequencyMap();
 		wl.computeBackwardsOrder();
+		// wl.printTreeMap();
 		
 		System.out.println("Finished!");
 	}
