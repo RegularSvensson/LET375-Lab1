@@ -105,8 +105,15 @@ public class WordLists {
 		writer.close();
 	}
 	
+	/**
+	 * Reverses a string.
+	 * @param string
+	 * @return reversed string
+	 */
 	private String reverse(String s) {
 	    // define!
+		String reverse = new StringBuffer(s).reverse().toString();
+		return reverse;
 	}
 	
 	private void computeWordFrequencies() {
