@@ -20,31 +20,32 @@ import java.io.FileWriter;
 
 public class WordLists {
 	private Reader in = null;
-	private Map<String, Integer> words  = new TreeMap<String, Integer>();
+	private Map<String, Integer> words = new TreeMap<String, Integer>();
+	private String word = null;
 
 	// constructor
 	public WordLists(String inputFileName) throws IOException {
 	    // ... define!
-		// read input file
-		Scanner scanner = new Scanner(new File(inputFileName));
+		in = new BufferedReader(new FileReader(inputFileName));
 		
-		// add words in file to words TreeMap
-		while (scanner.hasNext()) {
-			String word = scanner.next();
-		    Integer count = words.get(word);
-		    count = (count == null ? 1 : count + 1);
-		    words.put(word, count);
+		while ((word = getWord()) != null) {
+			if (!words.containsKey(word)) {
+				Integer i = 1;
+				words.put(word, i);
+			}
+			else {
+				words.put(word, words.get(word) + 1);
+			}
 		}
-		scanner.close();
 	}
 	
-	/* Prints words TreeMap
+	// Prints words TreeMap
 	public void printTreeMap() {
 		for (String word : words.keySet()) {
 			System.out.println(word);
 		}
 	}
-	*/
+	
 	/* Writes TreeMap to a file.
 	public void writeTreeMap() {
 		String s = "";
