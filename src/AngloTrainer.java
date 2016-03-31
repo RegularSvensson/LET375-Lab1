@@ -1,18 +1,9 @@
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.Set;
-
 // Author(s):
 // Email:	
 // Date:	
 
 public class AngloTrainer {
 	// ...
-
-	private Scanner scanner;
-	private int lengthOfLongestWord = 0;
-	private Set<String> dictionary;
 
 	// constructor
 	public AngloTrainer(String dictionaryFile) throws IOException {
@@ -27,29 +18,10 @@ public class AngloTrainer {
           // ... define!
 	}
 
-	/**
-	 * Read the dictionary into a suitable container.
-	 * The file is a simple text file. One word per line.
-	 * @param fileName
-	 */
 	private void loadDictionary( String fileName ) {
 	    // Read the dictionary into a suitable container.
 	    // The file is a simple text file. One word per line.
           // ... define!
-		File file = new File(fileName);
-		try {
-			scanner = new Scanner(file);
-			while(scanner.hasNextLine()) {
-				String s = scanner.nextLine();
-				if (lengthOfLongestWord < s.length()) {
-					lengthOfLongestWord = s.length();
-				}
-				dictionary.add(s);
-			}
-		} 
-		catch (IOException e) {
-			System.out.println("Scanner exception.");
-		}
 	}
 
 	private String randomLetters( int length ) {
