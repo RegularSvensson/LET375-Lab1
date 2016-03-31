@@ -76,6 +76,18 @@ public class WordLists {
 		}
 	}
 	
+	/**
+	 * Writes output to a file with selected fileName.
+	 * @param fileName
+	 * @param output
+	 * @throws IOException
+	 */
+	private void writeToFile(String fileName, String output) throws IOException {
+		Writer writer = new FileWriter(fileName);
+		writer.write(output);
+		writer.close();
+	}
+	
 	private String reverse(String s) {
 	    // define!
 	}
