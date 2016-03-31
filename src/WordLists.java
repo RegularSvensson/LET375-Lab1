@@ -23,6 +23,12 @@ public class WordLists {
 	private Reader in = null;
 	private Map<String, Integer> words = new TreeMap<String, Integer>();
 	private String word = null;
+	private Map<Integer, TreeSet<String>> map = new TreeMap<Integer, TreeSet<String>>(
+		new Comparator<Integer>() {
+			public int compare(Integer first, Integer second) {
+				return - 1 * first.compareTo(second);
+			}
+	});
 
 	// constructor
 	public WordLists(String inputFileName) throws IOException {
