@@ -23,6 +23,14 @@ public class AngloTrainer {
 	}
 
 	
+	/**
+	 * Prints random letters to screen.
+	 */
+	private void printRandomLetters() {
+		randomLetters = randomLetters(lengthOfLongestWord);
+		System.out.format("Random letters: %s\nEnter words using these letters!\n", randomLetters);
+	}
+	
 	// use this to verify loadDictionary
 	/**
 	 * Prints out the dictionary at the screen.
