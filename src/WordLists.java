@@ -142,6 +142,7 @@ public class WordLists {
 	
 
 	private void computeFrequencyMap() {
+	private void computeFrequencyMap() throws IOException {
           // define!
 	}
 	
