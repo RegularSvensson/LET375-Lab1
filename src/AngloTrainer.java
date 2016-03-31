@@ -53,7 +53,7 @@ public class AngloTrainer {
 			}
 			else {
 				// check if the word only uses characters from randomLetters
-				if (!includes(randomLetters, sort(word)) {
+				if (!includes(randomLetters, sort(word))) {
 					System.out.println("Your suggestion used characters that are not found in the given random characters.");
 					break;
 				}
