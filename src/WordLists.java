@@ -49,29 +49,6 @@ public class WordLists {
 		}
 	}
 	
-	// Prints words TreeMap
-	public void printTreeMap() {
-		for (String word : words.keySet()) {
-			System.out.println(word);
-		}
-	}
-	
-	/* Writes TreeMap to a file.
-	public void writeTreeMap() {
-		String s = "";
-		for (String word : words.keySet()) {
-			s += word + " ";
-		}
-		try {
-			writeToFile("test.txt", s);
-		}
-		catch (IOException e) {
-			System.out.println("caught you!");
-		}
-		
-	}
-	*/
-	
 	/**
 	 * Checks if a char is a punctuation.
 	 * @param c
