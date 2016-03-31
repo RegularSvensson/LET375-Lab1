@@ -13,6 +13,7 @@ public class AngloTrainer {
 
 	private int lengthOfLongestWord = 0;
 	private TreeSet<String> dictionary = new TreeSet<String>();
+	private String randomLetters;
 
 	// constructor
 	public AngloTrainer(String dictionaryFile) throws IOException {
