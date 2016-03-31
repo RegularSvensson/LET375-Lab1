@@ -6,9 +6,13 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-// Author(s):
-// Email:	
-// Date:	
+/**
+ * 
+ * @author Mona Khoshoi, Elias Svensson
+ * @since 31-03-16 
+ * Email: khoshoimona@gmail.com, elias.svensson.1992@gmail.com
+ *
+ */	
 
 public class AngloTrainer {
 	// ...
