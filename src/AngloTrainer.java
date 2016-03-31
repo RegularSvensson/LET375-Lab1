@@ -58,7 +58,7 @@ public class AngloTrainer {
 			System.out.println("Scanner exception.");
 		}
 	}
-
+	
 	private String randomLetters( int length ) {
 	    // this makes vovels a little more likely
 	    String letters = "aabcdeefghiijklmnoopqrstuuvwxyyz";  
@@ -67,6 +67,18 @@ public class AngloTrainer {
 		    buf.append( letters.charAt(randomGenerator.nextInt(letters.length())));
 	
 	    return buf.toString();
+	}
+	
+	/**
+	 * Sorts the characters in a word by alphabetical order
+	 * @param word
+	 * @return sorted word
+	 */
+	private String sort(String word) {
+		char[] chars = word.toCharArray();
+		Arrays.sort(chars);
+		String sortedWord = new String(chars);
+		return sortedWord;
 	}
 	
 	
