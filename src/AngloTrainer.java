@@ -43,7 +43,7 @@ public class AngloTrainer {
           // ... define!
 		File file = new File(fileName);
 		try {
-			scanner = new Scanner(file);
+			Scanner scanner = new Scanner(file);
 			while(scanner.hasNextLine()) {
 				String s = scanner.nextLine();
 				if (lengthOfLongestWord < s.length()) {
