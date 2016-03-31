@@ -24,7 +24,6 @@ public class AngloTrainer {
 
 	// constructor
 	public AngloTrainer(String dictionaryFile) throws IOException {
-	    // ... define!
 		loadDictionary(dictionaryFile);
 		
 	}
@@ -95,13 +94,10 @@ public class AngloTrainer {
 		System.out.format("Random letters: %s\nEnter words using these letters!\n", randomLetters);
 	}
 	
-	// use this to verify loadDictionary
 	/**
 	 * Prints out the dictionary at the screen.
 	 */
 	private void dumpDict() {
-	    // Print out the dictionary at the screen.
-          // ... define!
 		System.out.println(dictionary.toString());
 	}
 
@@ -111,9 +107,6 @@ public class AngloTrainer {
 	 * @param fileName
 	 */
 	private void loadDictionary( String fileName ) {
-	    // Read the dictionary into a suitable container.
-	    // The file is a simple text file. One word per line.
-          // ... define!
 		File file = new File(fileName);
 		try {
 			Scanner scanner = new Scanner(file);
@@ -131,7 +124,6 @@ public class AngloTrainer {
 	}
 	
 	private String randomLetters( int length ) {
-	    // this makes vovels a little more likely
 	    String letters = "aabcdeefghiijklmnoopqrstuuvwxyyz";  
 	    StringBuffer buf = new StringBuffer(length);
 	    for ( int i = 0; i < length; i++ ) 
@@ -222,13 +214,8 @@ public class AngloTrainer {
 		System.out.println(includes("",null));		//t
 		System.out.println(includes("abc",null));   //t
 	}
-
+	
     public static void main(String[] args) {
-        // ... define!
-    	/**
-    	 * Tries to instantiate an AngloTrainer object using dictionary.txt
-    	 * Catches IOException and print error message
-    	 */
     	try {
     		AngloTrainer angloTrainer = new AngloTrainer("dictionary.txt");
     		angloTrainer.run();
@@ -236,7 +223,6 @@ public class AngloTrainer {
     	catch (IOException e) {
     		System.out.print("Could not open file: " + e);
     	}
-    	
     }
 }
 
