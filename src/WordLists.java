@@ -125,28 +125,33 @@ public class WordLists {
 	}
 	
 
-	private void computeFrequencyMap() throws IOException {
-        // Add count and words to map
-		for(Map.Entry<String, Integer> entry : words.entrySet()) {
-			if(!map.containsKey(entry.getValue())) {
-				TreeSet<String> set = new TreeSet<String>();
-				set.add(entry.getKey());
-				map.put(entry.getValue(), set);
+	private void computeFrequencyMap() {
+		try {
+	        // Add count and words to map
+			for(Map.Entry<String, Integer> entry : words.entrySet()) {
+				if(!map.containsKey(entry.getValue())) {
+					TreeSet<String> set = new TreeSet<String>();
+					set.add(entry.getKey());
+					map.put(entry.getValue(), set);
+				}
+				else {
+					map.get(entry.getValue()).add(entry.getKey());
+				}
 			}
-			else {
-				map.get(entry.getValue()).add(entry.getKey());
+			String output = "";
+			// add count to output string
+			for(Integer n : map.keySet()) {
+				output += String.format("%d:\n", n);
+				// add words to output string
+				for (String word : map.get(n)) {
+					output += String.format("\t%s\n", word);
+				}
 			}
+			writeToFile("frequencySorted.txt", output);
 		}
-		String output = "";
-		// add count to output string
-		for(Integer n : map.keySet()) {
-			output += String.format("%d:\n", n);
-			// add words to output string
-			for (String word : map.get(n)) {
-				output += String.format("\t%s\n", word);
-			}
+		catch (IOException ioe) {
+			System.out.println("Exception: "+ ioe.getStackTrace());
 		}
-		writeToFile("frequencySorted.txt", output);
 	}
 	
 	/**
