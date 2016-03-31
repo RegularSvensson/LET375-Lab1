@@ -160,7 +160,7 @@ public class AngloTrainer {
     	 */
     	try {
     		AngloTrainer angloTrainer = new AngloTrainer("dictionary.txt");
-    		angloTrainer.start();
+    		angloTrainer.run();
     	}
     	catch (IOException e) {
     		System.out.print("Could not open file: " + e);
