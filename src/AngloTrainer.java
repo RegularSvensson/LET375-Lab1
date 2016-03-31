@@ -89,6 +89,18 @@ public class AngloTrainer {
 
     public static void main(String[] args) {
         // ... define!
+    	/**
+    	 * Try to instantiate an AngloTrainer object using dictionary.txt
+    	 * Catch IOException and print error message
+    	 */
+    	try {
+    		AngloTrainer angloTrainer = new AnlgoTrainer("src/dictionary.txt");
+    		angloTrainer.start();
+    	}
+    	catch (IOException e) {
+    		System.out.print("Could not open file: " + e);
+    	}
+    	
     }
 }
 
