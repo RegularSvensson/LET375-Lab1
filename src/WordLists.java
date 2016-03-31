@@ -18,6 +18,7 @@ public class WordLists {
 	private Reader in = null;
 	private Map<String, Integer> words  = new TreeMap<String, Integer>();
 
+	// constructor
 	public WordLists(String inputFileName) throws IOException {
 	    // ... define!
 		// read input file
