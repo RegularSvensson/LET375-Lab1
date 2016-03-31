@@ -116,8 +116,18 @@ public class WordLists {
 		return reverse;
 	}
 	
-	private void computeWordFrequencies() {
+	/**
+	 * Computes the frequency of words used in a files.
+	 * Writes the words and their frequency to a file.
+	 * @throws IOException
+	 */
+	private void computeWordFrequencies() throws IOException {
           // define!
+		String output = "";
+		for (String key : words.keySet()) {
+			output += String.format("%s\t%d\n", key, words.get(key));
+		}
+		writeToFile("alfaSorted.txt", output);
 	}
 	
 
