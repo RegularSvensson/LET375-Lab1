@@ -16,7 +16,7 @@ import java.io.FileReader;
 
 public class WordLists {
 	private Reader in = null;
-	private TreeMap<String, Integer> words;
+	private Map<String, Integer> words  = new TreeMap<String, Integer>();
 
 	public WordLists(String inputFileName) throws IOException {
 	    // ... define!
