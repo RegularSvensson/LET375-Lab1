@@ -31,6 +31,8 @@ public class AngloTrainer {
 	 * When done or the user fails, it prints all the possible words.
 	 */
 	public void run() {
+		// print random letters to screen
+		printRandomLetters();
 		
 	}
 
