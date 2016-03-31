@@ -82,6 +82,21 @@ public class AngloTrainer {
 	}
 	
 	
+	/**
+	 * Find possible words of given letters matching dictionary words
+	 * @param letters
+	 * @return possible words in dictionary
+	 */
+	private TreeSet<String> getPossibleWords(String letters) {
+		TreeSet<String> words = new TreeSet<String>();
+		for (String word : dictionary) {
+			if (includes(letters, sort(word)))
+				words.add(word);
+		}
+		return words;
+	}
+	
+	
 	/* Def. includes	
 	 * Let #(x,s) = the number of occurrences of the charcter x in the string s.
 	 * includes(a,b) holds iff for every character x in b, #(x,b) <= #(x,a)
