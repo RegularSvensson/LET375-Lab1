@@ -23,8 +23,15 @@ public class WordLists {
 		// read input file
 		Scanner scanner = new Scanner(new File(inputFileName));
 		
+		// add words in file to words TreeMap
+		while (scanner.hasNext()) {
+			String word = scanner.next();
+		    Integer count = words.get(word);
+		    count = (count == null ? 1 : count + 1);
+		    words.put(word, count);
+		}
+		scanner.close();
 	}
-	
 	private boolean isPunctuationChar(char c) {
 	    final String punctChars = ",.:;?!";
 	    return punctChars.indexOf(c) != -1;
