@@ -23,6 +23,15 @@ public class AngloTrainer {
 		
 	}
 
+	/**
+	 * Prints all possible words to screen.
+	 */
+	private void printAllWords() {
+		System.out.println("I found:");
+		for(String word : correctWords) {
+			System.out.println(word);
+		}
+	}
 	
 	/**
 	 * Prints random letters to screen.
