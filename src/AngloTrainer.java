@@ -34,6 +34,8 @@ public class AngloTrainer {
 		// print random letters to screen
 		printRandomLetters();
 		
+		// print all possible words to screen
+		printAllWords();
 	}
 
 	/**
