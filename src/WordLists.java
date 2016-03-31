@@ -35,6 +35,7 @@ public class WordLists {
 		}
 		scanner.close();
 	}
+	
 	/* Prints words TreeMap
 	public void printTreeMap() {
 		for (String word : words.keySet()) {
@@ -42,6 +43,22 @@ public class WordLists {
 		}
 	}
 	*/
+	/* Writes TreeMap to a file.
+	public void writeTreeMap() {
+		String s = "";
+		for (String word : words.keySet()) {
+			s += word + " ";
+		}
+		try {
+			writeToFile("test.txt", s);
+		}
+		catch (IOException e) {
+			System.out.println("caught you!");
+		}
+		
+	}
+	*/
+	
 	private boolean isPunctuationChar(char c) {
 	    final String punctChars = ",.:;?!";
 	    return punctChars.indexOf(c) != -1;
@@ -112,6 +129,7 @@ public class WordLists {
 		wl.computeFrequencyMap();
 		wl.computeBackwardsOrder();
 		// wl.printTreeMap();
+		// wl.writeTreeMap();
 		
 		System.out.println("Finished!");
 	}
