@@ -10,7 +10,7 @@ import java.io.FileReader;
 public class WordLists {
 	private Reader in = null;
 
-	public WordLists(String inputFileName) {
+	public WordLists(String inputFileName) throws IOException {
 	    // ... define!
 	}
 	
