@@ -21,10 +21,15 @@ public class AngloTrainer {
 		
 	}
 
+	
 	// use this to verify loadDictionary
+	/**
+	 * Print out the dictionary at the screen.
+	 */
 	private void dumpDict() {
 	    // Print out the dictionary at the screen.
           // ... define!
+		System.out.println(dictionary.toString());
 	}
 
 	/**
